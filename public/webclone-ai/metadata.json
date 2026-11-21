@@ -1,0 +1,6 @@
+{
+  "name": "charity: water — Clean Water for Everyone",
+  "description": "Bringing clean and safe drinking water to people in developing countries. 100% of public donations fund clean water projects, proven with GPS coordinates and photos.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

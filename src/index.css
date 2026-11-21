@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-sans: "Plus Jakarta Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --color-otoo-teal: #1E1B6B;
+  --color-otoo-teal-hover: #14114A;
+  --color-otoo-amber: #3FBD92;
+  --color-otoo-amber-hover: #36A87D;
+  --color-otoo-navy: #1E1B6B;
+  --color-otoo-cream: #FAF7F0;
+  --color-otoo-charcoal: #14114A;
+  --color-otoo-muted: #565677;
+  --color-otoo-subtle: #6E6E93;
+  --color-otoo-stone: #E9EAE4;
+  --color-otoo-panel: #F4F5F0;
+  --color-otoo-water-tint: #C9F0DF;
+  --color-otoo-water-blue: #3FBD92;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #14114A;
+    background-color: #FAF7F0;
+    selection-background-color: #3FBD92;
+    selection-color: #1E1B6B;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-sans);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+}
+
+.cw-focus {
+  outline: none;
+}
+
+.cw-focus:focus-visible {
+  outline: 2px solid #1E1B6B;
+  outline-offset: 2px;
+}
+
+/* Otoo button standard - crisp 4px border-radius, NOT pills */
+.btn-otoo-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #3FBD92;
+  color: #1E1B6B;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-otoo-primary:hover {
+  background-color: #36A87D;
+}
+.btn-otoo-primary:active {
+  transform: scale(0.99);
+}
+
+.btn-otoo-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #1E1B6B;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  padding: 0.875rem 2rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.btn-otoo-dark:hover {
+  background-color: #14114A;
+}
+.btn-otoo-dark:active {
+  transform: scale(0.99);
+}
+
+/* MapLibre project markers - Otoo green on navy with crisp styling */
+.otoo-map-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #3FBD92;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  color: #1E1B6B;
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.otoo-map-marker:hover {
+  transform: scale(1.15);
+  background: #36A87D;
+}
+
+.otoo-map-marker:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 2px;
+}
+
+/* MapLibre attribution */
+.otoo-map .maplibregl-ctrl-attrib {
+  background: rgba(19, 16, 82, 0.85);
+  color: #B3B3D1;
+}
+
+.otoo-map .maplibregl-ctrl-attrib a {
+  color: #3FBD92;
+}
+
+/* 100% ring animation */
+.otoo-ring-fill {
+  animation: otoo-ring-fill 2s ease-out forwards;
+}
+
+@keyframes otoo-ring-fill {
+  to {
+    strokeDashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

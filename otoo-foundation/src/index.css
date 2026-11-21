@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+  body {
+    @apply bg-white text-cw-black antialiased selection:bg-cw-yellow selection:text-cw-black;
+  }
+}
+
+@layer components {
+  /* Layout helpers */
+  .section-container {
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
+  }
+  
+  .section-tight {
+    @apply max-w-5xl mx-auto px-6 sm:px-8;
+  }
+
+  /* Authentic Charity: Water Eyebrow Typography (strictly unboxed, tracked, bold) */
+  .eyebrow {
+    @apply block text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-cw-yellow mb-3;
+  }
+
+  .eyebrow-dark {
+    @apply block text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-cw-black mb-3;
+  }
+
+  .eyebrow-muted {
+    @apply block text-xs sm:text-[13px] font-bold uppercase tracking-[0.22em] text-gray-500 mb-3;
+  }
+
+  /* Authentic Charity: Water Buttons */
+  .btn-cw-primary {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-cw-yellow hover:bg-cw-yellow-hover text-cw-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-sm hover:shadow-cw-yellow transition-all duration-200 active:scale-95 disabled:opacity-50 cursor-pointer;
+  }
+
+  .btn-cw-dark {
+    @apply inline-flex items-center justify-center px-8 py-3.5 bg-cw-black hover:bg-neutral-800 text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full shadow-sm transition-all duration-200 active:scale-95 cursor-pointer;
+  }
+
+  .btn-cw-outline {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-cw-black text-cw-black hover:bg-cw-black hover:text-white font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full transition-all duration-200 active:scale-95 cursor-pointer;
+  }
+
+  .btn-cw-outline-white {
+    @apply inline-flex items-center justify-center px-8 py-3.5 border-2 border-white text-white hover:bg-white hover:text-cw-black font-extrabold text-xs sm:text-sm tracking-wider uppercase rounded-full transition-all duration-200 active:scale-95 cursor-pointer;
+  }
+
+  /* Cards - Flat, clean, hairline borders or contrast backgrounds, NO cartoon shadows */
+  .cw-card {
+    @apply bg-white rounded-2xl border border-gray-200 p-8 transition-all duration-200 hover:border-gray-300;
+  }
+
+  .cw-card-muted {
+    @apply bg-cw-gray-50 rounded-2xl border border-gray-200/80 p-8;
+  }
+
+  /* Clean minimal inputs */
+  .cw-input {
+    @apply w-full px-5 py-3.5 rounded-full border border-gray-300 text-cw-black placeholder-gray-400 focus:outline-none focus:border-cw-black focus:ring-1 focus:ring-cw-black transition-colors;
+  }
+}
