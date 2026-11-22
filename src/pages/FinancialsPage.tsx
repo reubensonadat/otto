@@ -1,29 +1,29 @@
 import { FileText, Download, ShieldCheck, CheckCircle2 } from 'lucide-react';
-import { JerrycanIcon } from '../components/BrandIcons';
+import { GhanaCediCoin } from '../components/BrandIcons';
 
 const FINANCIAL_REPORTS = [
-  { year: '2025', revenue: '£14.2M', status: 'Audited & Filed' },
-  { year: '2024', revenue: '£11.8M', status: 'Audited & Filed' },
-  { year: '2023', revenue: '£9.4M', status: 'Audited & Filed' },
-  { year: '2022', revenue: '£7.9M', status: 'Audited & Filed' },
+  { year: '2026', revenue: '£500K Goal', status: 'Active 2026 Strategy' },
+  { year: '2025', revenue: '£380K', status: 'Audited & Filed' },
+  { year: '2024', revenue: '£295K', status: 'Audited & Filed' },
+  { year: '2023', revenue: '£210K', status: 'Audited & Filed' },
 ];
 
 const FAQS = [
   {
-    q: 'How does 100% of my public donation go directly to clean water?',
-    a: 'We operate with two separate bank accounts. Public donations go directly into our Water Fund and are spent strictly on pipes, drilled boreholes, filters, and local training. Our separate operating expenses are covered by private philanthropists.',
+    q: 'How does 100% of my public donation go directly to community programmes?',
+    a: 'We operate with two separate, strictly divided accounting channels. Every penny donated by the public goes directly to school construction, healthcare clinic operations, medical procedures, and student scholarships in coastal Ghana. Operational overhead is funded independently.',
   },
   {
     q: 'Who covers your operational overhead and staff salaries?',
-    a: 'We have a dedicated group of private benefactors and foundation partners known as The Well. They make multi-year gifts specifically to fund staff salaries, office space, technology, and flights.',
+    a: 'Our founder, board members, and private institutional benefactors fund our organizational costs, logistics, legal filing, and technology infrastructure through separate private contributions.',
   },
   {
-    q: 'What about credit card processing fees?',
-    a: 'When you give £100 on your credit card, £100 goes to water projects. The Well covers all credit card transaction processing fees.',
+    q: 'What about credit card and payment processing fees?',
+    a: 'When you donate £50 or GH₵750, 100% of that value goes directly into our community programme fund. Private donors reimburse transaction fees so that your gift remains entirely whole.',
   },
   {
-    q: 'Are your financial statements publicly audited?',
-    a: 'Yes. Every year, an independent certified public accounting firm conducts a rigorous audit of both our Water Fund and our Operations account.',
+    q: 'How do you verify and prove that money was spent responsibly?',
+    a: 'We provide radical transparency: GPS coordinates, photographic construction progress, student enrollment rosters, and public project milestone reports for every school and clinic we support.',
   },
 ];
 
@@ -41,7 +41,7 @@ export function FinancialsPage({ onOpenDonate }: { onOpenDonate: () => void }) {
               Radical transparency. Open books.
             </h1>
             <p className="text-lg sm:text-xl text-[#4A4A6A] leading-relaxed font-normal">
-              We believe charities should earn trust through evidence. We prove every dollar you give, maintain two separate accounts, and publish all independent audits.
+              We believe a foundation must earn trust through evidence. We prove every pound or cedi you give, maintain two strictly separated accounts, and publish verified impact reports.
             </p>
           </div>
         </div>
@@ -52,58 +52,66 @@ export function FinancialsPage({ onOpenDonate }: { onOpenDonate: () => void }) {
         <div className="max-w-[1260px] mx-auto px-5 sm:px-8 lg:px-12">
           <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
             
-            <div className="bg-white rounded-[6px] border border-[#E9EAE4] p-8 sm:p-10 space-y-6 shadow-sm">
+            <div className="bg-white rounded-[8px] border border-[#E9EAE4] p-8 sm:p-10 space-y-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#1E1B6B] border-b-2 border-[#3FBD92] pb-0.5">
-                  Account #1: Water Fund
+                  Account #1: Community Programme Fund
                 </span>
-                <JerrycanIcon className="w-7 h-7" />
+                <GhanaCediCoin className="w-8 h-8" />
               </div>
               <h2 className="font-serif text-3xl text-[#1E1B6B]">Public Donations</h2>
-              <div className="font-serif text-4xl font-normal text-[#1E1B6B]">100% to Water</div>
+              <div className="font-serif text-4xl font-normal text-[#1E1B6B]">100% to the Ground</div>
               <p className="text-sm text-[#4A4A6A] leading-relaxed">
-                When you give to Otoo Foundation, every penny funds clean water. We never take a cut for credit card fees, office rent, flights, or salaries.
+                When you give to Otoo Foundation, 100% funds healthcare, education, and community builds. We never deduct salaries or operational expenses from public gifts.
               </p>
               <ul className="space-y-3 text-sm text-[#1E1B6B] pt-2 border-t border-[#E9EAE4]">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>Drilling rigs, solar pumps, and piped water networks</span>
+                  <span>Classroom construction, dual desks &amp; books in Elmina</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>BioSand filters and school rainwater tanks</span>
+                  <span>Free community health screenings &amp; surgery in Aboadze</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>GPS coordinates, field photos, and cloud sensor monitoring</span>
+                  <span>Otoo STEM Challenge robotics kits &amp; laptops</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
+                  <span>Verified milestone photo proof &amp; GPS coordinates</span>
                 </li>
               </ul>
             </div>
 
-            <div className="bg-[#1E1B6B] text-white rounded-[6px] border border-white/10 p-8 sm:p-10 space-y-6 shadow-sm">
+            <div className="bg-[#1E1B6B] text-white rounded-[8px] border border-white/10 p-8 sm:p-10 space-y-6 shadow-sm">
               <div className="flex items-center justify-between">
                 <span className="text-[11px] font-bold uppercase tracking-wider text-[#3FBD92] border-b-2 border-[#3FBD92] pb-0.5">
-                  Account #2: Operations
+                  Account #2: Operations &amp; Governance
                 </span>
-                <ShieldCheck className="w-7 h-7 text-[#3FBD92]" strokeWidth={1.75} />
+                <ShieldCheck className="w-8 h-8 text-[#3FBD92]" strokeWidth={1.75} />
               </div>
-              <h2 className="font-serif text-3xl text-white">The Well</h2>
-              <div className="font-serif text-4xl font-normal text-[#3FBD92]">Private Donors</div>
+              <h2 className="font-serif text-3xl text-white">Private Benefactors</h2>
+              <div className="font-serif text-4xl font-normal text-[#3FBD92]">Board &amp; Founders</div>
               <p className="text-sm text-[#D5D5EA] leading-relaxed">
-                A dedicated community of private philanthropists and family foundations fund our operational costs so public gifts stay completely whole.
+                A dedicated group of private philanthropists and our board fund all operating costs so public gifts stay completely unencumbered.
               </p>
               <ul className="space-y-3 text-sm text-[#D5D5EA] pt-2 border-t border-white/12">
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>Staff compensation, recruitment & engineers</span>
+                  <span>Field management, engineering surveys &amp; logistics</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>Cloud architecture, sensor hardware & security</span>
+                  <span>Financial audits, compliance &amp; legal reporting</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
-                  <span>100% of donor credit card transaction fees</span>
+                  <span>100% of donor credit card and bank transaction fees</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-[#3FBD92]" strokeWidth={1.75} />
+                  <span>Digital platform hosting &amp; transparent donor reporting</span>
                 </li>
               </ul>
             </div>
@@ -120,7 +128,7 @@ export function FinancialsPage({ onOpenDonate }: { onOpenDonate: () => void }) {
               Audited Statements
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#1E1B6B] tracking-tight">
-              Download our annual reports & audits.
+              Annual reports &amp; governance disclosures.
             </h2>
           </div>
 
@@ -130,16 +138,16 @@ export function FinancialsPage({ onOpenDonate }: { onOpenDonate: () => void }) {
                 <div className="flex items-center gap-4">
                   <FileText className="w-6 h-6 text-[#1E1B6B]" strokeWidth={1.75} />
                   <div>
-                    <div className="font-serif text-lg font-bold text-[#1E1B6B]">{r.year} Annual Financial Statement</div>
-                    <div className="text-xs text-[#565677] font-medium">Clean Water Revenue: {r.revenue} • Status: {r.status}</div>
+                    <div className="font-serif text-lg font-bold text-[#1E1B6B]">{r.year} Programme Financial Overview</div>
+                    <div className="text-xs text-[#565677] font-medium">Programme Allocation: {r.revenue} &bull; Status: {r.status}</div>
                   </div>
                 </div>
                 <button
                   type="button"
                   className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-[0.12em] text-[#1E1B6B] hover:text-[#36A87D] cursor-pointer"
                 >
-                  <Download className="w-3.5 h-3.5" />
-                  <span>Download PDF</span>
+                  <Download className="w-3.5 h-3.5 text-[#3FBD92]" />
+                  <span>Download Report</span>
                 </button>
               </div>
             ))}
@@ -147,34 +155,34 @@ export function FinancialsPage({ onOpenDonate }: { onOpenDonate: () => void }) {
         </div>
       </section>
 
-      {/* FAQs */}
-      <section className="py-20 lg:py-28 border-b border-[#E9EAE4]">
-        <div className="max-w-[960px] mx-auto px-5 sm:px-8 lg:px-12 space-y-12">
-          <div className="text-center space-y-3">
+      {/* FAQ */}
+      <section className="py-20 lg:py-28 bg-white border-b border-[#E9EAE4]">
+        <div className="max-w-[960px] mx-auto px-5 sm:px-8 lg:px-12">
+          <div className="text-center mb-16 space-y-3">
             <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#1E1B6B]">
-              Questions & Answers
+              Frequently Asked Questions
             </p>
             <h2 className="font-serif text-3xl sm:text-4xl font-normal text-[#1E1B6B] tracking-tight">
-              Everything you need to know about the 100% model.
+              How our financial model works.
             </h2>
           </div>
 
           <div className="space-y-6">
             {FAQS.map((faq) => (
-              <div key={faq.q} className="bg-[#FAF7F0] rounded-[6px] border border-[#E9EAE4] p-7 space-y-2">
-                <h3 className="font-bold text-lg text-[#1E1B6B]">{faq.q}</h3>
+              <div key={faq.q} className="bg-[#FAF7F0] rounded-[6px] border border-[#E9EAE4] p-6 sm:p-8 space-y-2">
+                <h3 className="font-serif text-xl text-[#1E1B6B]">{faq.q}</h3>
                 <p className="text-sm text-[#4A4A6A] leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center pt-4">
+          <div className="mt-14 text-center">
             <button
               type="button"
               onClick={onOpenDonate}
               className="bg-[#3FBD92] hover:bg-[#36A87D] active:scale-[0.99] text-[#1E1B6B] font-bold text-xs sm:text-sm uppercase tracking-[0.14em] px-9 py-3.5 rounded-[4px] transition-all cursor-pointer shadow-sm"
             >
-              Give With 100% Impact
+              Support Our Programmes Today
             </button>
           </div>
         </div>

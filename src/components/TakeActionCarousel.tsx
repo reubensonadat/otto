@@ -1,17 +1,15 @@
 import { useState } from 'react';
-import { ChevronLeft, ChevronRight, Droplets, Building2, Flag, Gift, Handshake, Heart } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Building2, Flag, Gift, Handshake, Heart } from 'lucide-react';
 import { ACTION_CARDS, type ActionCardItem } from '../data/otooData';
-import { CURRENCY_CONFIG, type CurrencyCode } from '../utils/donationLogic';
 
 export interface TakeActionCarouselProps {
-  currency: CurrencyCode;
   onSelectAction?: (card: ActionCardItem) => void;
 }
 
 function ActionCardIcon({ icon }: { icon: ActionCardItem['icon'] }) {
   const iconClass = 'w-4 h-4 text-[#1E1B6B]';
   switch (icon) {
-    case 'spring': return <Droplets className={iconClass} />;
+    case 'heart': return <Heart className={iconClass} />;
     case 'sponsor': return <Building2 className={iconClass} />;
     case 'fundraise': return <Flag className={iconClass} />;
     case 'gift': return <Gift className={iconClass} />;
@@ -20,12 +18,11 @@ function ActionCardIcon({ icon }: { icon: ActionCardItem['icon'] }) {
   }
 }
 
-export function TakeActionCarousel({ currency, onSelectAction }: TakeActionCarouselProps) {
+export function TakeActionCarousel({ onSelectAction }: TakeActionCarouselProps) {
   const [startIndex, setStartIndex] = useState(0);
   const [imgErrors, setImgErrors] = useState<Record<string, boolean>>({});
   const visibleCount = 4;
   const maxIndex = Math.max(0, ACTION_CARDS.length - visibleCount);
-  const { symbol, springExampleMonthly } = CURRENCY_CONFIG[currency];
   const handlePrev = () => setStartIndex((i) => Math.max(0, i - 1));
   const handleNext = () => setStartIndex((i) => Math.min(maxIndex, i + 1));
   const visibleCards = ACTION_CARDS.slice(startIndex, startIndex + visibleCount);
@@ -37,11 +34,11 @@ export function TakeActionCarousel({ currency, onSelectAction }: TakeActionCarou
           {/* Unboxed tracked eyebrow - NO pills */}
           <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#1E1B6B]">Get Involved</p>
           <h2 className="font-serif text-[34px] sm:text-[42px] lg:text-[46px] leading-[1.16] font-normal text-[#1E1B6B]">Ready to take action?</h2>
-          <p className="text-[15px] sm:text-[16px] leading-[1.65] text-[#4A4A6A]">There are lots of great ways to help us end the global water crisis. <strong className="font-bold text-[#1E1B6B]">Take action today, and change lives.</strong></p>
+          <p className="text-[15px] sm:text-[16px] leading-[1.65] text-[#4A4A6A]">There are lots of great ways to help us restore hope in coastal Ghana. <strong className="font-bold text-[#1E1B6B]">Take action today, and change lives.</strong></p>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {visibleCards.map((card) => {
-            const description = card.id === 'monthly-spring' ? `A gift of just ${symbol}${springExampleMonthly} a month brings clean water to an entire family each year.` : card.description;
+            const description = card.description;
             return (
               <div key={card.id} className="group relative flex flex-col">
                 {card.badge && (

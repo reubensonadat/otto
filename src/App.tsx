@@ -10,22 +10,24 @@ import {
 import { BASE_IMPACT_TOTALS } from './data/otooData';
 import { Navbar } from './components/Navbar';
 import { HeroDonation } from './components/HeroDonation';
-import { WhyWaterSection } from './components/WhyWaterSection';
+import { ProgrammeStoriesSection } from './components/ProgrammeStoriesSection';
 import { CrisisAndModelSection } from './components/CrisisAndModelSection';
-import { ImpactMapSection } from './components/ImpactMapSection';
+import { CommunityImpactMapSection } from './components/CommunityImpactMapSection';
 import { TakeActionCarousel } from './components/TakeActionCarousel';
+import { UpcomingProjectsSection } from './components/UpcomingProjectsSection';
+import { VideoSection } from './components/VideoSection';
 import { NewsletterSection } from './components/NewsletterSection';
 import { Footer, type FooterAction } from './components/Footer';
 import { ActionModal, type ModalState } from './components/ActionModal';
 
-// Dedicated Subpages with Otoo Foundation Design Language
-import { TheSpringPage } from './pages/TheSpringPage';
-import { OurWorkPage } from './pages/OurWorkPage';
-import { FinancialsPage } from './pages/FinancialsPage';
+// Dedicated Subpages with Genuine Otoo Foundation Mission
 import { AboutPage } from './pages/AboutPage';
-import { ImpactStoriesPage } from './pages/ImpactStoriesPage';
+import { OurWorkPage } from './pages/OurWorkPage';
+import { TheSpringPage } from './pages/TheSpringPage';
+import { FinancialsPage } from './pages/FinancialsPage';
 import { FundraisePage } from './pages/FundraisePage';
 import { ContactPage } from './pages/ContactPage';
+import { ProjectsPage } from './pages/ProjectsPage';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -70,7 +72,7 @@ export default function App() {
     else if (action === 'model-100') setModal({ type: 'model-100' });
     else if (action === 'fundraise') setModal({ type: 'fundraise', mode: 'fundraise' });
     else if (action === 'sponsor') setModal({ type: 'fundraise', mode: 'sponsor' });
-    else if (action === 'why-water') scrollToSection('why-water');
+    else if (action === 'why-water') scrollToSection('programmes');
     else if (action === 'impact-map') scrollToSection('impact-map');
     else if (action === 'newsletter') scrollToSection('newsletter');
     else if (action === 'take-action') scrollToSection('take-action');
@@ -84,14 +86,16 @@ export default function App() {
         onFrequencyChange={setFrequency}
         onProceedToCheckout={(amount, chosenFreq) => setModal({ type: 'checkout', amount, frequency: chosenFreq })}
       />
-      <WhyWaterSection onSelectStoryDetail={(story) => setModal({ type: 'story', story })} />
+      <ProgrammeStoriesSection onSelectStoryDetail={(story) => setModal({ type: 'story', story })} />
       <CrisisAndModelSection onGiveToday={() => scrollToSection('donate')} onOpenModelInfo={() => setModal({ type: 'model-100' })} />
-      <ImpactMapSection totals={liveImpactTotals} onFundProject={() => handleOpenDonate('monthly')} />
-      <TakeActionCarousel currency={currency} onSelectAction={(card) => {
+      <CommunityImpactMapSection totals={liveImpactTotals} onFundProject={() => handleOpenDonate('monthly')} />
+      <TakeActionCarousel onSelectAction={(card) => {
         if (card.modalIntent === 'monthly') handleOpenDonate('monthly');
         else if (card.modalIntent === 'once') handleOpenDonate('once');
         else setModal({ type: 'fundraise', mode: card.modalIntent });
       }} />
+      <UpcomingProjectsSection />
+      <VideoSection />
       <NewsletterSection />
     </>
   );
@@ -109,15 +113,33 @@ export default function App() {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<HomePageContent />} />
-            <Route path="/donate" element={<TheSpringPage currency={currency} onJoinSpring={(amt) => handleOpenDonate('monthly', amt)} />} />
-            <Route path="/the-spring" element={<TheSpringPage currency={currency} onJoinSpring={(amt) => handleOpenDonate('monthly', amt)} />} />
-            <Route path="/our-work" element={<OurWorkPage onFundProject={() => handleOpenDonate('monthly')} />} />
+            
+            {/* Why Coastal Ghana & Programmes */}
+            <Route path="/why-coastal-ghana" element={<OurWorkPage onFundProject={() => handleOpenDonate('monthly')} />} />
             <Route path="/programmes" element={<OurWorkPage onFundProject={() => handleOpenDonate('monthly')} />} />
-            <Route path="/financials" element={<FinancialsPage onOpenDonate={() => handleOpenDonate('monthly')} />} />
+            <Route path="/our-work" element={<OurWorkPage onFundProject={() => handleOpenDonate('monthly')} />} />
+            
+            {/* Upcoming Projects & Builds */}
+            <Route path="/upcoming-projects" element={<ProjectsPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/impact-stories" element={<ProjectsPage />} />
+            
+            {/* The Otoo Circle (Monthly Giving) */}
+            <Route path="/the-circle" element={<TheSpringPage currency={currency} onJoinCircle={(amt) => handleOpenDonate('monthly', amt)} />} />
+            <Route path="/the-spring" element={<TheSpringPage currency={currency} onJoinCircle={(amt) => handleOpenDonate('monthly', amt)} />} />
+            <Route path="/donate" element={<TheSpringPage currency={currency} onJoinCircle={(amt) => handleOpenDonate('monthly', amt)} />} />
+            
+            {/* About & Leadership */}
             <Route path="/about" element={<AboutPage onOpenDonate={() => handleOpenDonate('monthly')} />} />
             <Route path="/team" element={<AboutPage onOpenDonate={() => handleOpenDonate('monthly')} />} />
-            <Route path="/impact-stories" element={<ImpactStoriesPage onOpenDonate={() => handleOpenDonate('monthly')} />} />
+            
+            {/* Financials & 100% Model */}
+            <Route path="/financials" element={<FinancialsPage onOpenDonate={() => handleOpenDonate('monthly')} />} />
+            
+            {/* Peer-to-Peer Fundraising */}
             <Route path="/fundraise" element={<FundraisePage currency={currency} onStartCampaign={() => setModal({ type: 'fundraise', mode: 'fundraise' })} />} />
+            
+            {/* Contact */}
             <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </main>

@@ -1,4 +1,4 @@
-export type CurrencyCode = 'GBP' | 'USD';
+export type CurrencyCode = 'GBP' | 'GHS' | 'USD';
 export type GivingFrequency = 'monthly' | 'once';
 
 export interface CurrencyConfig {
@@ -10,7 +10,7 @@ export interface CurrencyConfig {
   oncePresets: number[];
   defaultMonthly: number;
   defaultOnce: number;
-  springExampleMonthly: number;
+  exampleMonthly: number;
 }
 
 export const CURRENCY_CONFIG: Record<CurrencyCode, CurrencyConfig> = {
@@ -23,7 +23,18 @@ export const CURRENCY_CONFIG: Record<CurrencyCode, CurrencyConfig> = {
     oncePresets: [30, 60, 120, 250],
     defaultMonthly: 20,
     defaultOnce: 60,
-    springExampleMonthly: 15,
+    exampleMonthly: 15,
+  },
+  GHS: {
+    code: 'GHS',
+    symbol: 'GH₵',
+    label: 'Ghanaian Cedi',
+    costPerPerson: 450,
+    monthlyPresets: [75, 150, 300, 600],
+    oncePresets: [450, 900, 1800, 3750],
+    defaultMonthly: 300,
+    defaultOnce: 900,
+    exampleMonthly: 225,
   },
   USD: {
     code: 'USD',
@@ -34,7 +45,7 @@ export const CURRENCY_CONFIG: Record<CurrencyCode, CurrencyConfig> = {
     oncePresets: [50, 100, 150, 500],
     defaultMonthly: 40,
     defaultOnce: 100,
-    springExampleMonthly: 20,
+    exampleMonthly: 20,
   },
 };
 
@@ -49,11 +60,11 @@ export interface DonationRecord {
   timestamp: string;
 }
 
-export interface WaterProjectCluster {
+export interface CommunityCluster {
   id: string;
   country: string;
   region: string;
-  projectCount: number;
+  programmeCount: number;
   countLabel: string;
   peopleServed: number;
   mapX: number;
@@ -63,7 +74,7 @@ export interface WaterProjectCluster {
   lng: number;
   gps: string;
   featuredVillage: string;
-  technology: string;
+  primaryProgramme: string;
   completedDate: string;
   partner: string;
   image: string;
@@ -71,10 +82,25 @@ export interface WaterProjectCluster {
   summary: string;
 }
 
+export interface UpcomingProject {
+  id: string;
+  title: string;
+  type: 'School Build' | 'Hospital & Clinic' | 'STEM Lab' | 'Community Transform';
+  location: string;
+  target: number;
+  raised: number;
+  progress: number;
+  status: 'Planning' | 'Foundation' | 'Construction' | 'Fitting Out' | 'Active';
+  image: string;
+  imageAlt: string;
+  description: string;
+  impact: string;
+}
+
 export interface ImpactTotals {
   peopleServed: number;
-  waterProjects: number;
-  countries: number;
+  programmes: number;
+  communities: number;
 }
 
 export interface NewsletterFormValues {
@@ -124,11 +150,12 @@ export function validateDonationAmount(
   if (!Number.isFinite(amount) || amount <= 0) {
     return { valid: false, error: 'Please enter a valid donation amount.' };
   }
-  if (amount < 2) {
-    return { valid: false, error: `Minimum donation is ${symbol}2.` };
+  const min = currency === 'GHS' ? 25 : 2;
+  if (amount < min) {
+    return { valid: false, error: `Minimum donation is ${symbol}${min}.` };
   }
-  if (amount > 1_000_000) {
-    return { valid: false, error: `For gifts over ${symbol}1,000,000, please contact our sponsorship team.` };
+  if (amount > 10_000_000) {
+    return { valid: false, error: `For major gifts, please contact our institutional partnerships team.` };
   }
   return { valid: true };
 }
@@ -157,7 +184,7 @@ export function validateNewsletterForm(values: NewsletterFormValues): Newsletter
   return { valid: Object.keys(errors).length === 0, errors };
 }
 
-export function filterProjectClusters(clusters: WaterProjectCluster[], selectedCountry: string, searchQuery: string): WaterProjectCluster[] {
+export function filterCommunityClusters(clusters: CommunityCluster[], selectedCountry: string, searchQuery: string): CommunityCluster[] {
   const q = searchQuery.trim().toLowerCase();
   return clusters.filter((cluster) => {
     const matchesCountry = !selectedCountry || selectedCountry === 'ALL' || cluster.country === selectedCountry;
@@ -167,7 +194,7 @@ export function filterProjectClusters(clusters: WaterProjectCluster[], selectedC
       cluster.country.toLowerCase().includes(q) ||
       cluster.region.toLowerCase().includes(q) ||
       cluster.featuredVillage.toLowerCase().includes(q) ||
-      cluster.technology.toLowerCase().includes(q)
+      cluster.primaryProgramme.toLowerCase().includes(q)
     );
   });
 }
@@ -176,7 +203,7 @@ export function computeImpactTotals(baseTotals: ImpactTotals, donations: Donatio
   const extraPeople = donations.reduce((sum, d) => sum + d.peopleServed, 0);
   return {
     peopleServed: baseTotals.peopleServed + extraPeople,
-    waterProjects: baseTotals.waterProjects + donations.length,
-    countries: baseTotals.countries,
+    programmes: baseTotals.programmes,
+    communities: baseTotals.communities,
   };
 }

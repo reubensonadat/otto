@@ -34,13 +34,13 @@ export function Donation() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           <div className="space-y-10 lg:space-y-12">
             <div className="section-header text-left">
-              <span className="eyebrow">Give water</span>
+              <span className="eyebrow">Give hope</span>
               <h2 className="text-3xl lg:text-4xl font-serif font-bold text-slate-900 leading-tight">
-                Your gift brings clean water home
+                Your gift builds brighter futures
               </h2>
             </div>
             <p className="text-lg text-slate-600 leading-relaxed max-w-lg">
-              Just £50 can give one person clean water for years. Join our community of
+              Just £50 can support healthcare and education for a family in coastal Ghana. Join our community of
               monthly givers and help us reach more families.
             </p>
 

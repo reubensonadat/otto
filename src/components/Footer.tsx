@@ -3,19 +3,18 @@ import type { CurrencyCode } from '../utils/donationLogic';
 import { Link } from 'react-router-dom';
 
 const PAGE_ROUTES: Record<string, string> = {
-  'page-donate': '/the-spring',
+  'page-donate': '/donate',
   'page-programmes': '/our-work',
   'page-about': '/about',
   'page-contact': '/contact',
   'page-our-work': '/our-work',
-  'page-the-spring': '/the-spring',
   'page-fundraise': '/fundraise',
 };
 
 export type FooterAction =
   | 'donate' | 'monthly' | 'once' | 'fundraise' | 'sponsor' | 'signin'
   | 'why-water' | 'impact-map' | 'model-100' | 'newsletter' | 'take-action'
-  | 'page-donate' | 'page-programmes' | 'page-about' | 'page-contact' | 'page-our-work' | 'page-the-spring' | 'page-fundraise';
+  | 'page-donate' | 'page-programmes' | 'page-about' | 'page-contact' | 'page-our-work' | 'page-fundraise';
 
 export interface FooterProps {
   currency: CurrencyCode;
@@ -65,8 +64,9 @@ export function Footer({ currency, onCurrencyChange, onAction }: FooterProps) {
             <label htmlFor="footer-currency-select" className="text-[11px] font-bold uppercase tracking-[0.16em] text-[#A5A5C4]">Currency</label>
             <div className="relative">
               <select id="footer-currency-select" value={currency} onChange={(e) => onCurrencyChange(e.target.value as CurrencyCode)} className="appearance-none h-[36px] rounded-[4px] border border-[#3FBD92] bg-[#FAF7F0] text-[#1E1B6B] px-3 py-1.5 text-[12px] font-bold cw-focus cursor-pointer focus:border-[#3FBD92] focus:ring-1 focus:ring-[#3FBD92] outline-none pr-8">
-                <option value="GBP" className="text-[#1E1B6B]">Pound sterling (GBP)</option>
-                <option value="USD" className="text-[#1E1B6B]">United States dollar (USD)</option>
+                <option value="GBP" className="text-[#1E1B6B]">Pound sterling (£ GBP)</option>
+                <option value="GHS" className="text-[#1E1B6B]">Ghanaian Cedi (GH₵ GHS)</option>
+                <option value="USD" className="text-[#1E1B6B]">United States dollar ($ USD)</option>
               </select>
               <div className="absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none text-[#1E1B6B] text-[10px]">
                 ▾

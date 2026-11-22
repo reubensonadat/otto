@@ -9,16 +9,16 @@ export function CrisisAndModelSection({ onGiveToday, onOpenModelInfo }: CrisisAn
   return (
     <section className="bg-[#FAF7F0] py-20 lg:py-28 px-5 sm:px-8 lg:px-12 border-b border-[#E9EAE4]">
       <div className="max-w-[820px] mx-auto text-center">
-        {/* Unboxed tracked eyebrow - NO pills */}
         <p className="text-[11px] font-bold uppercase tracking-[0.22em] text-[#1E1B6B] mb-3">
           Our Mission & Promise
         </p>
         <h2 className="font-serif text-[34px] sm:text-[42px] lg:text-[46px] leading-[1.16] font-normal text-[#1E1B6B]">
-          Restoring hope, transforming lives across Ghana's coast
+          Restoring hope, transforming lives across Ghana&rsquo;s coast
         </h2>
         <p className="mt-6 text-[16px] leading-[1.7] text-[#4A4A6A] max-w-[600px] mx-auto">
-          Our work to end the water crisis needs your support. You can help open the door to
-          education, income, dignity, and health — especially for women and children.
+          Otoo Foundation is a UK-based nonprofit working in coastal Ghana. We restore hope and transform
+          lives through healthcare, education and community empowerment &mdash; from community health
+          screenings and student scholarships to STEM activities and empowerment for women and families.
         </p>
         <div className="mt-8">
           <button
@@ -35,7 +35,7 @@ export function CrisisAndModelSection({ onGiveToday, onOpenModelInfo }: CrisisAn
             <p className="text-[15px] sm:text-[16px] leading-[1.6] text-[#1E1B6B]">
               Thanks to a small group of generous philanthropists who fund our operational
               expenses, <strong className="font-bold">100% of your donation</strong> directly
-              funds clean water projects.
+              funds our programmes in Ghana.
             </p>
             <button
               type="button"

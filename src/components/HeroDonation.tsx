@@ -6,7 +6,7 @@ import {
   type CurrencyCode,
   type GivingFrequency,
 } from '../utils/donationLogic';
-import { WaterDropIcon, YellowHeartIcon } from './BrandIcons';
+import { YellowHeartIcon } from './BrandIcons';
 
 export interface HeroDonationProps {
   currency: CurrencyCode;
@@ -30,7 +30,6 @@ export function HeroDonation({
   const [customAmount, setCustomAmount] = useState('');
   const [isCustomMode, setIsCustomMode] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [heroSrc, setHeroSrc] = useState<string>('https://images.unsplash.com/photo-1543623252-cb433439c2e3?auto=format&fit=crop&w=1920&q=85');
   const [imgError, setImgError] = useState(false);
 
   useEffect(() => {
@@ -70,40 +69,45 @@ export function HeroDonation({
   };
 
   return (
-    <section id="donate" aria-label="Clean water donation hero" className="relative w-full min-h-[660px] lg:min-h-[calc(100vh-72px)] lg:max-h-[860px] flex items-center overflow-hidden bg-[#1E1B6B]">
+    <section id="donate" aria-label="Otoo Foundation donation hero" className="relative w-full min-h-[660px] lg:min-h-[calc(100vh-72px)] lg:max-h-[860px] flex items-center overflow-hidden bg-[#1E1B6B]">
       {!imgError ? (
         <img
-          src={heroSrc}
-          alt="Clean water transforming lives in coastal Ghana"
+          src="/photos/hero-canoe.jpg"
+          alt="Otoo Foundation coastal Ghana community - children on canoe"
           referrerPolicy="no-referrer"
           width="1920"
           height="1080"
           loading="eager"
           decoding="async"
-          onError={() => {
-            if (heroSrc !== '/field/hero.jpg') {
-              setHeroSrc('/field/hero.jpg');
+          onError={(e) => {
+            const target = e.currentTarget;
+            if (!target.dataset.triedFallback) {
+              target.dataset.triedFallback = 'true';
+              target.src = 'https://images.pexels.com/photos/27731921/pexels-photo-27731921.jpeg?auto=compress&cs=tinysrgb&w=1920';
             } else {
               setImgError(true);
             }
           }}
-          className="absolute inset-0 w-full h-full object-cover object-[72%_center] lg:object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center lg:object-center"
         />
       ) : (
-        <div className="absolute inset-0 bg-gradient-to-br from-[#131052] via-[#262280] to-[#7A5E35]" aria-hidden="true" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#131052] via-[#262280] to-[#1A175E]" aria-hidden="true" />
       )}
       <div className="absolute inset-0 bg-gradient-to-r from-[#0E0C3D]/72 via-[#0E0C3D]/32 to-transparent" aria-hidden="true" />
       <div className="relative z-10 w-full max-w-[1380px] mx-auto px-5 sm:px-8 lg:px-14 py-14 lg:py-20">
         <div className="max-w-[460px] lg:ml-6">
-          <h1 className="font-serif text-white text-[34px] sm:text-[42px] lg:text-[46px] leading-[1.15] font-normal text-center tracking-[-0.01em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)] mb-8">
+          <h1 className="font-serif text-white text-[34px] sm:text-[42px] lg:text-[46px] leading-[1.15] font-normal text-center tracking-[-0.01em] drop-shadow-[0_2px_10px_rgba(0,0,0,0.22)] mb-6">
             Restore hope.<br />
-            <span className="text-[#3FBD92]">Transform lives.</span>
+            <span className="text-[#3FBD92]">Build futures.</span>
           </h1>
+          <p className="text-[16px] sm:text-[17px] leading-[1.7] text-[#D5D5EA] mb-8 max-w-[420px] mx-auto">
+            Otoo Foundation restores hope and transforms lives in Ghana&rsquo;s coastal communities through healthcare, education and community empowerment. Your gift funds real programmes &mdash; new schools, hospital builds, student scholarships and health screenings for children and families.
+          </p>
           <form onSubmit={handleSubmit} noValidate className="bg-white rounded-[6px] shadow-[0_18px_48px_rgba(0,0,0,0.22)] overflow-hidden max-w-[396px] mx-auto">
             <div role="tablist" aria-label="Donation frequency" className="grid grid-cols-2 gap-1.5 bg-[#F4F5F0] p-2.5 border-b border-[#E9EAE4]">
               <button type="button" role="tab" aria-selected={frequency === 'monthly'} onClick={() => onFrequencyChange('monthly')} className={`flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-[4px] text-[12px] font-bold uppercase tracking-[0.12em] transition-colors whitespace-nowrap cursor-pointer cw-focus ${frequency === 'monthly' ? 'bg-[#3FBD92] text-[#1E1B6B] shadow-[0_1px_2px_rgba(0,0,0,0.08)]' : 'bg-transparent text-[#565677] hover:text-[#1E1B6B]'}`}>
                 <span>Monthly</span>
-                <WaterDropIcon className="w-3.5 h-3.5" />
+                <YellowHeartIcon className="w-3.5 h-3.5" />
               </button>
               <button type="button" role="tab" aria-selected={frequency === 'once'} onClick={() => onFrequencyChange('once')} className={`flex items-center justify-center py-2.5 px-3 rounded-[4px] text-[12px] font-bold uppercase tracking-[0.12em] transition-colors whitespace-nowrap cursor-pointer cw-focus ${frequency === 'once' ? 'bg-[#3FBD92] text-[#1E1B6B] shadow-[0_1px_2px_rgba(0,0,0,0.08)]' : 'bg-transparent text-[#565677] hover:text-[#1E1B6B]'}`}>
                 Give Once
@@ -111,7 +115,7 @@ export function HeroDonation({
             </div>
             <div className="p-5 sm:p-6">
               <p className="text-[11px] font-bold uppercase tracking-[0.13em] text-[#1E1B6B] mb-3.5">
-                Choose/Enter an amount to give
+                Support a programme
               </p>
               <div className="grid grid-cols-3 gap-2.5">
                 {presets.map((amt) => {
@@ -134,9 +138,9 @@ export function HeroDonation({
               <div data-testid="hero-impact-readout" className="mt-4 flex items-center gap-2 text-[13px] text-[#1E1B6B] min-h-[24px]">
                 <YellowHeartIcon className="w-4 h-4 shrink-0" />
                 {peopleServed > 0 ? (
-                  <p className="leading-snug">Gives <strong className="font-bold tabular-nums">{peopleServed.toLocaleString('en-US')} {peopleServed === 1 ? 'person' : 'people'}</strong> clean water{frequency === 'monthly' ? ' every year on average.' : '.'}</p>
+                  <p className="leading-snug">Supports <strong className="font-bold tabular-nums">{peopleServed.toLocaleString('en-US')} {peopleServed === 1 ? 'person' : 'people'}</strong> through our programmes{frequency === 'monthly' ? ' every year on average.' : '.'}</p>
                 ) : (
-                  <p className="text-[#6E6E93]">Enter an amount to calculate your clean water impact.</p>
+                  <p className="text-[#6E6E93]">Enter an amount to calculate your programme impact.</p>
                 )}
               </div>
               {errorMessage && <p role="alert" className="mt-2 text-[12px] font-medium text-[#B91C1C]">{errorMessage}</p>}

@@ -1,62 +1,67 @@
-export function JerrycanIcon({ className = 'w-5 h-6' }: { className?: string }) {
+export function GhanaCediCoin({ className = 'w-6 h-6' }: { className?: string }) {
   return (
-    <svg
-      viewBox="0 0 24 30"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      className={className}
-      aria-hidden="true"
-    >
-      <rect x="14.5" y="1" width="4.5" height="2.8" rx="0.8" fill="#3FBD92" />
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <circle cx="16" cy="16" r="14.5" fill="#FAF7F0" stroke="#3FBD92" strokeWidth="2.5" />
+      <circle cx="16" cy="16" r="11" fill="#3FBD92" fillOpacity="0.12" stroke="#1E1B6B" strokeWidth="1" strokeDasharray="2 2" />
       <path
-        d="M5 5.2C5 4.0 5.9 3.2 7 3.2H18.2C19.8 3.2 21 4.4 21 6V26.5C21 27.9 19.9 29 18.5 29H5.5C4.1 29 3 27.9 3 26.5V9.2C3 7.8 4 6.2 5 5.2Z"
-        fill="#3FBD92"
-      />
-      <rect x="6.5" y="5.4" width="6.2" height="2.2" rx="0.5" fill="#1E1B6B" />
-      <path
-        d="M6.8 11.4L17.2 24.4M17.2 11.4L6.8 24.4"
-        stroke="#FFFFFF"
-        strokeWidth="1.75"
+        d="M19.5 10.5C18.6 9.8 17.4 9.5 16 9.5C12.4 9.5 10.2 12.2 10.2 16C10.2 19.8 12.4 22.5 16 22.5C17.5 22.5 18.7 22.1 19.6 21.4"
+        stroke="#1E1B6B"
+        strokeWidth="2.4"
         strokeLinecap="round"
       />
-      <rect x="9.6" y="15.4" width="4.8" height="5" rx="0.5" fill="#3FBD92" stroke="#1E1B6B" strokeWidth="1.2" />
+      <line x1="8.5" y1="16" x2="16.5" y2="16" stroke="#1E1B6B" strokeWidth="2.2" strokeLinecap="round" />
     </svg>
   );
 }
 
-export function DarkJerrycanBadge({ className = 'w-12 h-12' }: { className?: string }) {
+export function GhanaCediIcon({ className = 'w-4 h-4' }: { className?: string }) {
   return (
-    <div className={`${className} rounded-[6px] bg-[#3FBD92] flex items-center justify-center shrink-0 shadow-sm`} aria-hidden="true">
-      <svg viewBox="0 0 24 30" fill="none" className="w-5 h-6">
-        <rect x="14.5" y="1" width="4.5" height="2.8" rx="0.8" fill="#1E1B6B" />
-        <path
-          d="M5 5.2C5 4.0 5.9 3.2 7 3.2H18.2C19.8 3.2 21 4.4 21 6V26.5C21 27.9 19.9 29 18.5 29H5.5C4.1 29 3 27.9 3 26.5V9.2C3 7.8 4 6.2 5 5.2Z"
-          fill="#1E1B6B"
-        />
-        <rect x="6.5" y="5.4" width="6.2" height="2.2" rx="0.5" fill="#3FBD92" />
-        <path
-          d="M6.8 11.4L17.2 24.4M17.2 11.4L6.8 24.4"
-          stroke="#3FBD92"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-        <rect x="9.6" y="15.4" width="4.8" height="5" rx="0.5" fill="#1E1B6B" stroke="#3FBD92" strokeWidth="1.2" />
-      </svg>
-    </div>
+    <span className={`inline-flex items-center justify-center font-bold font-mono ${className}`} aria-hidden="true">
+      ₵
+    </span>
   );
 }
 
-export function WaterDropIcon({ className = 'w-3.5 h-4' }: { className?: string }) {
+export function MedicalCrossIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 16 20" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
-      <path
-        d="M8 1.4C8 1.4 2 8.2 2 12.6C2 16 4.7 18.6 8 18.6C11.3 18.6 14 16 14 12.6C14 8.2 8 1.4 8 1.4Z"
-        fill="#1E1B6B"
-        stroke="#1E1B6B"
-        strokeWidth="1.5"
-        strokeLinejoin="round"
-      />
-      <path d="M5.4 12.8C5.4 14.3 6.5 15.5 8 15.7" stroke="#3FBD92" strokeWidth="1.3" strokeLinecap="round" />
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <rect x="9" y="3" width="6" height="18" rx="1.5" fill="#3FBD92" />
+      <rect x="3" y="9" width="18" height="6" rx="1.5" fill="#3FBD92" />
+      <rect x="9.5" y="3.5" width="5" height="17" rx="1" stroke="#1E1B6B" strokeWidth="1" />
+      <rect x="3.5" y="9.5" width="17" height="5" rx="1" stroke="#1E1B6B" strokeWidth="1" />
+    </svg>
+  );
+}
+
+export function SchoolBuildingIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <path d="M12 3L2 8L12 13L22 8L12 3Z" fill="#3FBD92" stroke="#1E1B6B" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M6 10.5V17C6 18.5 8.7 20 12 20C15.3 20 18 18.5 18 17V10.5" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" />
+      <path d="M22 8V15" stroke="#3FBD92" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="22" cy="15.5" r="1.5" fill="#1E1B6B" />
+    </svg>
+  );
+}
+
+export function GraduationCapIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <path d="M12 3L2 8L12 13L22 8L12 3Z" fill="#3FBD92" stroke="#1E1B6B" strokeWidth="1.5" strokeLinejoin="round" />
+      <path d="M6 10.5V17C6 18.5 8.7 20 12 20C15.3 20 18 18.5 18 17V10.5" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" />
+      <line x1="22" y1="8" x2="22" y2="15" stroke="#1E1B6B" strokeWidth="1.75" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function StemFlaskIcon({ className = 'w-5 h-5' }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <path d="M9 3H15" stroke="#1E1B6B" strokeWidth="1.75" strokeLinecap="round" />
+      <path d="M10 3V8L4.5 18C3.8 19.3 4.7 21 6.2 21H17.8C19.3 21 20.2 19.3 19.5 18L14 8V3" stroke="#1E1B6B" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M6.5 15H17.5" stroke="#3FBD92" strokeWidth="2" strokeLinecap="round" />
+      <circle cx="10" cy="17" r="1" fill="#3FBD92" />
+      <circle cx="13" cy="18" r="1.5" fill="#3FBD92" />
     </svg>
   );
 }
@@ -101,18 +106,18 @@ export function HundredPercentRing({ className = 'w-24 h-24' }: { className?: st
   );
 }
 
-export function ImpactEnvelopeIllustration({ className = 'w-16 h-14' }: { className?: string }) {
+export function ImpactEnvelopeIllustration({ className = 'w-16 h-16' }: { className?: string }) {
   return (
-    <svg viewBox="0 0 76 62" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
-      <g transform="rotate(-11 32 34)">
-        <rect x="8" y="20" width="46" height="31" rx="2" fill="#E8F7F0" stroke="#1E1B6B" strokeWidth="1.7" />
-        <path d="M15 24V9.5C15 8.7 15.7 8 16.5 8H45.5C46.3 8 47 8.7 47 9.5V24" fill="#FFFFFF" stroke="#1E1B6B" strokeWidth="1.7" />
-        <path d="M31 24.5L26 20C23.8 18 24.4 14.5 27.1 14.5C28.7 14.5 30 15.4 31 16.6C32 15.4 33.3 14.5 34.9 14.5C37.6 14.5 38.2 18 36 20L31 24.5Z" fill="#3FBD92" stroke="#1E1B6B" strokeWidth="1.5" strokeLinejoin="round" />
-        <path d="M8 21L31 37L54 21" stroke="#1E1B6B" strokeWidth="1.7" strokeLinejoin="round" />
-        <path d="M8 50L24 35M54 50L38 35" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" />
-      </g>
-      <path d="M62 24C66 22 69 20 71 17" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M63 31C67 30 70 29 73 27" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" />
+    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} aria-hidden="true">
+      <rect x="8" y="16" width="48" height="34" rx="4" fill="#FAF7F0" stroke="#1E1B6B" strokeWidth="2.5" />
+      <path d="M8 20L32 36L56 20" stroke="#3FBD92" strokeWidth="2.5" strokeLinejoin="round" />
+      <circle cx="32" cy="36" r="6" fill="#3FBD92" />
+      <path d="M30 36L31.5 37.5L34 35" stroke="#1E1B6B" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   );
 }
+
+// Backwards-compatible aliases so any residual imports don't crash
+export const JerrycanIcon = GhanaCediCoin;
+export const DarkJerrycanBadge = GhanaCediCoin;
+export const WaterDropIcon = GhanaCediCoin;
