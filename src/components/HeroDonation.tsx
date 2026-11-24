@@ -72,7 +72,7 @@ export function HeroDonation({
     <section id="donate" aria-label="Otoo Foundation donation hero" className="relative w-full min-h-[660px] lg:min-h-[calc(100vh-72px)] lg:max-h-[860px] flex items-center overflow-hidden bg-[#1E1B6B]">
       {!imgError ? (
         <img
-          src="/photos/hero-canoe.jpg"
+          src="https://images.pexels.com/photos/27848719/pexels-photo-27848719.jpeg?auto=format&fit=crop&w=1920&q=85"
           alt="Otoo Foundation coastal Ghana community - children on canoe"
           referrerPolicy="no-referrer"
           width="1920"

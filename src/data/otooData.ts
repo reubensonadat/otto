@@ -40,8 +40,8 @@ export const PROGRAMME_STORIES: ProgrammeStory[] = [
     statStatement:
       'Community health screenings reach thousands each year, connecting coastal families to free preventive care, maternal support, and emergency surgeries.',
     linkLabel: 'Explore Otoo Health',
-    image: '/photos/aboadze-health-screening.jpg',
-    fallbackImage: '/photos/african-doctor-clinic.jpg',
+    image: 'https://images.pexels.com/photos/34185202/pexels-photo-34185202.jpeg?auto=format&fit=crop&w=1200&q=85',
+    fallbackImage: '/field/health.jpg',
     imageAlt: 'Black Ghanaian health workers conducting screenings in coastal Ghana.',
     detailHeadline: 'Healthcare reaching underserved coastal fishing communities',
     detailBody:
@@ -58,8 +58,8 @@ export const PROGRAMME_STORIES: ProgrammeStory[] = [
     statStatement:
       'School building and educational scholarships remove financial barriers, keeping hundreds of children enrolled and thriving in school.',
     linkLabel: 'Explore Otoo Educate',
-    image: '/photos/african-school-children.jpg',
-    fallbackImage: '/photos/black-student-classroom.jpg',
+    image: 'https://images.pexels.com/photos/14909652/pexels-photo-14909652.jpeg?auto=format&fit=crop&w=1200&q=85',
+    fallbackImage: '/field/youth.jpg',
     imageAlt: 'Black Ghanaian schoolchildren smiling in their classroom.',
     detailHeadline: 'Classrooms and scholarships that keep children in school',
     detailBody:
@@ -76,8 +76,8 @@ export const PROGRAMME_STORIES: ProgrammeStory[] = [
     statStatement:
       'Hands-on robotics, coding, and challenge-based science activities ignite technical curiosity in Ghana’s next generation of engineers.',
     linkLabel: 'Explore Otoo STEM',
-    image: '/photos/stem-education.jpg',
-    fallbackImage: '/photos/african-school-children.jpg',
+    image: 'https://images.pexels.com/photos/33920051/pexels-photo-33920051.jpeg?auto=format&fit=crop&w=1200&q=85',
+    fallbackImage: '/field/outreach.jpg',
     imageAlt: 'Black Ghanaian youth working on practical STEM experiments.',
     detailHeadline: 'STEM Challenge for coastal Ghana&rsquo;s youth',
     detailBody:
@@ -94,8 +94,8 @@ export const PROGRAMME_STORIES: ProgrammeStory[] = [
     statStatement:
       'Vocational training and micro-enterprise support empower coastal women, youth, and fishing families to achieve economic independence.',
     linkLabel: 'Explore Otoo Transform',
-    image: '/photos/ghanaian-mothers-empowerment.jpg',
-    fallbackImage: '/photos/coastal-fisherfolk.jpg',
+    image: 'https://images.pexels.com/photos/20653716/pexels-photo-20653716.jpeg?auto=format&fit=crop&w=1200&q=85',
+    fallbackImage: '/field/community.jpg',
     imageAlt: 'Black Ghanaian women and mothers collaborating in community empowerment.',
     detailHeadline: 'Livelihoods and empowerment for coastal families',
     detailBody:

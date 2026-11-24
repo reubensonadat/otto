@@ -52,7 +52,7 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
             />
           </Link>
 
-          <nav aria-label="Primary Navigation" className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav aria-label="Primary Navigation" className="hidden sm:flex items-center gap-4 lg:gap-8 flex-wrap">
             <Link
               to="/why-coastal-ghana"
               onClick={handleLinkClick}
@@ -147,14 +147,14 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
             <span>Give</span>
             <GhanaCediCoin className="w-4 h-4" />
           </button>
-          <button type="button" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={mobileOpen} className="md:hidden p-2 text-[#1E1B6B] hover:bg-[#FAF7F0] rounded-[4px] cw-focus cursor-pointer">
+          <button type="button" onClick={() => setMobileOpen(!mobileOpen)} aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'} aria-expanded={mobileOpen} className="sm:hidden p-2 text-[#1E1B6B] hover:bg-[#FAF7F0] rounded-[4px] cw-focus cursor-pointer">
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
         </div>
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-t border-[#E9EAE4] px-6 py-4 space-y-2 shadow-lg">
+        <div className="sm:hidden bg-white border-t border-[#E9EAE4] px-6 py-4 space-y-2 shadow-lg">
           <Link to="/why-coastal-ghana" onClick={handleLinkClick} className="block text-left py-2.5 text-[13px] font-bold uppercase tracking-[0.12em] text-[#1E1B6B] border-b border-[#F4F5F0]">
             Why Coastal Ghana?
           </Link>
