@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { GhanaCediCoin } from './BrandIcons';
@@ -13,9 +13,7 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
   const [takeActionOpen, setTakeActionOpen] = useState(false);
   const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [overflow, setOverflow] = useState(false);
   const navRef = useRef<HTMLElement>(null);
-  const navItemsRef = useRef<HTMLElement>(null);
   const location = useLocation();
 
   // Close menus on route change
@@ -36,39 +34,6 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // Detect when nav items don't fit and show hamburger accordingly
-  const checkOverflow = useCallback(() => {
-    const items = navItemsRef.current;
-    if (!items) {
-      setOverflow(false);
-      return;
-    }
-    // If scrollWidth > clientWidth, items overflow
-    setOverflow(items.scrollWidth > items.clientWidth + 1);
-  }, []);
-
-  useEffect(() => {
-    const items = navItemsRef.current;
-    if (!items) return;
-
-    checkOverflow();
-
-    const ro = new ResizeObserver(() => {
-      checkOverflow();
-    });
-    ro.observe(items);
-
-    // Also check on font/image load
-    window.addEventListener('load', checkOverflow);
-    document.addEventListener('fontloading', checkOverflow, { once: true });
-
-    return () => {
-      ro.disconnect();
-      window.removeEventListener('load', checkOverflow);
-      document.removeEventListener('fontloading', checkOverflow);
-    };
-  }, [checkOverflow]);
-
   const handleLinkClick = () => {
     setTakeActionOpen(false);
     setAboutOpen(false);
@@ -87,10 +52,10 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
             />
           </Link>
 
+          {/* Desktop navigation — hidden below 1024px (lg) */}
           <nav
             aria-label="Primary Navigation"
-            ref={navItemsRef}
-            className={`items-center gap-4 lg:gap-8 flex-wrap ${overflow ? 'hidden' : 'flex'} sm:flex`}
+            className="hidden lg:flex items-center gap-4 lg:gap-8"
           >
             <Link
               to="/why-coastal-ghana"
@@ -179,20 +144,20 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
         </div>
 
         <div className="flex items-center gap-4 sm:gap-6 shrink-0">
-          <button type="button" onClick={onOpenSignIn} className="hidden sm:inline-block text-[12px] font-bold uppercase tracking-[0.12em] text-[#1E1B6B] hover:text-[#565677] transition-colors whitespace-nowrap shrink-0 py-2 cw-focus cursor-pointer">
+          <button type="button" onClick={onOpenSignIn} className="hidden lg:inline-block text-[12px] font-bold uppercase tracking-[0.12em] text-[#1E1B6B] hover:text-[#565677] transition-colors whitespace-nowrap shrink-0 py-2 cw-focus cursor-pointer">
             Sign In
           </button>
           <button type="button" onClick={() => onOpenDonate()} className="inline-flex items-center justify-center gap-2 bg-[#3FBD92] hover:bg-[#36A87D] active:scale-[0.99] text-[#1E1B6B] font-bold text-[12px] uppercase tracking-[0.12em] px-5 py-2.5 rounded-[4px] transition-all whitespace-nowrap shrink-0 cw-focus cursor-pointer min-h-[40px] shadow-sm">
             <span>Give</span>
             <GhanaCediCoin className="w-4 h-4" />
           </button>
-          {/* Hamburger shows when items overflow OR on very small screens */}
+          {/* Hamburger menu — shows from phone up to 1024px (hidden at lg) */}
           <button
             type="button"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
             aria-expanded={mobileOpen}
-            className={`${overflow ? 'inline-block' : 'hidden'} sm:hidden p-2 text-[#1E1B6B] hover:bg-[#FAF7F0] rounded-[4px] cw-focus cursor-pointer`}
+            className="lg:hidden p-2 text-[#1E1B6B] hover:bg-[#FAF7F0] rounded-[4px] cw-focus cursor-pointer"
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -200,7 +165,7 @@ export function Navbar({ onOpenDonate, onOpenSignIn, onOpenModelInfo }: NavbarPr
       </div>
 
       {mobileOpen && (
-        <div className="sm:hidden bg-white border-t border-[#E9EAE4] px-6 py-4 space-y-2 shadow-lg">
+        <div className="lg:hidden bg-white border-t border-[#E9EAE4] px-6 py-4 space-y-2 shadow-lg">
           <Link to="/why-coastal-ghana" onClick={handleLinkClick} className="block text-left py-2.5 text-[13px] font-bold uppercase tracking-[0.12em] text-[#1E1B6B] border-b border-[#F4F5F0]">
             Why Coastal Ghana?
           </Link>
