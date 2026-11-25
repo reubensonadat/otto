@@ -121,6 +121,16 @@
   outline-offset: 2px;
 }
 
+/* User location pin - emerald with white dot at coastal Ghana */
+.otoo-map-marker--user {
+  width: 30px;
+  height: 30px;
+  background: #3FBD92;
+  border: 3px solid #ffffff;
+  box-shadow: 0 0 0 4px rgba(63, 189, 146, 0.4), 0 4px 14px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
 /* MapLibre attribution */
 .otoo-map .maplibregl-ctrl-attrib {
   background: rgba(19, 16, 82, 0.85);

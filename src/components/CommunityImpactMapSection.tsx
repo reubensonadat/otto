@@ -36,8 +36,8 @@ const CARTO_DARK_STYLE: any = {
   ],
 };
 
-const HOME_CENTER: [number, number] = [-1.75, 5.1167];
-const HOME_ZOOM = 7.0;
+const HOME_CENTER: [number, number] = [-1.34413634463577, 5.105110637809609];
+const HOME_ZOOM = 12.0;
 
 export function CommunityImpactMapSection({ totals, onFundProject }: CommunityImpactMapSectionProps) {
   const [selectedCountry, setSelectedCountry] = useState<string>('ALL');
@@ -100,6 +100,9 @@ export function CommunityImpactMapSection({ totals, onFundProject }: CommunityIm
         const lib = await import('maplibre-gl');
         if (cancelled || !container) return;
 
+        // Set MapLibre worker URL so the real map renders instead of SVG fallback
+        (lib as any).setWorkerUrl(new URL('../node_modules/maplibre-gl/dist/maplibre-gl-worker.mjs', import.meta.url).toString());
+
         if (typeof (lib as any).supported === 'function' && !(lib as any).supported()) {
           console.info('WebGL not supported, using high-definition SVG vector map engine');
           return;
@@ -125,6 +128,28 @@ export function CommunityImpactMapSection({ totals, onFundProject }: CommunityIm
           if (cancelled) return;
           setMapLibreReady(true);
           renderMarkers(clustersRef.current);
+
+          // Add a pin at your coastal Ghana location
+          const userPin = document.createElement('button');
+          userPin.type = 'button';
+          userPin.setAttribute('aria-label', 'Your location - coastal Ghana');
+          userPin.className = 'otoo-map-marker otoo-map-marker--user';
+          userPin.innerHTML = `
+            <div class="w-6 h-6 bg-[#3FBD92] rounded-full border-2 border-white shadow-[0_0_0_4px_rgba(63,189,146,0.3)] flex items-center justify-center">
+              <div class="w-2 h-2 bg-white rounded-full"></div>
+            </div>
+          `;
+          userPin.style.position = 'absolute';
+          userPin.style.left = '-3px';
+          userPin.style.top = '-3px';
+
+          const userMarker = new (markerCtorRef.current as typeof MapLibreMarker)({
+            element: userPin,
+            anchor: 'center',
+          })
+            .setLngLat(HOME_CENTER)
+            .addTo(mapInstance!);
+          markersRef.current.push(userMarker);
         });
 
         setTimeout(() => {
